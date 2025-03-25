@@ -5,7 +5,6 @@ import { UsersTable } from "./UsersTable/UsersTable";
 import BlogPost from "./BlogPost/BlogPost";
 
 export const App = () => {
-
   return (
     <BrowserRouter>
       <GlobalStyles />

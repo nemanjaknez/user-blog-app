@@ -229,7 +229,7 @@ export const GlobalStyles = React.memo(
     textarea {
       display: block;
       width: 100%;
-      padding: 10px 15px; 
+      padding: 10px 15px;
       border: 1px solid #eee;
       border-radius: 0;
       font-size: 15px;
@@ -275,14 +275,14 @@ export const GlobalStyles = React.memo(
 
     .delete-btn {
       color: #fff;
-      background-color: #D84040;
-      border-color: #D84040;
+      background-color: #d84040;
+      border-color: #d84040;
     }
 
     .delete-btn:hover {
       color: #fff;
-      background-color: #A31D1D;
-      border-color: #A31D1D;
+      background-color: #a31d1d;
+      border-color: #a31d1d;
     }
 
     table button,
@@ -325,13 +325,13 @@ export const GlobalStyles = React.memo(
     }
 
     .error-message {
-      border: 1px solid #D84040;
-      color: #D84040;
+      border: 1px solid #d84040;
+      color: #d84040;
     }
 
     .success-message {
-      border: 1px solid #77B254;
-      color: #77B254;
+      border: 1px solid #77b254;
+      color: #77b254;
     }
 
     .image-placeholder {
@@ -382,7 +382,7 @@ export const GlobalStyles = React.memo(
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(255,255,255, 0.6);
+      background-color: rgba(255, 255, 255, 0.6);
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -402,7 +402,7 @@ export const GlobalStyles = React.memo(
     }
 
     .loader::after {
-      content: '';  
+      content: "";
       box-sizing: border-box;
       position: absolute;
       left: 0;
@@ -411,7 +411,7 @@ export const GlobalStyles = React.memo(
       bottom: 0;
       margin: auto;
       border: 3px solid;
-      border-color: transparent #E52020 #E52020;
+      border-color: transparent #e52020 #e52020;
       width: 24px;
       height: 24px;
       border-radius: 50%;
@@ -426,8 +426,8 @@ export const GlobalStyles = React.memo(
       100% {
         transform: rotate(360deg);
       }
-    } 
-        
+    }
+
     @keyframes rotationBack {
       0% {
         transform: rotate(0deg);
@@ -438,6 +438,5 @@ export const GlobalStyles = React.memo(
     }
 
     ${responsiveStyles}
-
   `}`,
 );

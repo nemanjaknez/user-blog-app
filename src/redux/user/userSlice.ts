@@ -3,17 +3,18 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getUsers, User, deleteUser } from "../../data/data";
 import { RootState } from "../store";
 
-export const fetchUsers = createAsyncThunk<User[], void, { rejectValue: string }>(
-  "users/fetchUsers",
-  async (_, { rejectWithValue }) => {
-    try {
-      const users = await getUsers();
-      return users;
-    } catch (error) {
-      return rejectWithValue("Failed to fetch users");
-    }
+export const fetchUsers = createAsyncThunk<
+  User[],
+  void,
+  { rejectValue: string }
+>("users/fetchUsers", async (_, { rejectWithValue }) => {
+  try {
+    const users = await getUsers();
+    return users;
+  } catch (error) {
+    return rejectWithValue("Failed to fetch users");
   }
-);
+});
 
 export const removeUser = createAsyncThunk(
   "user/removeUser",
@@ -22,12 +23,12 @@ export const removeUser = createAsyncThunk(
       const success = await deleteUser(id);
       if (!success) throw new Error("Deletion failed");
       return id;
-    } catch(error) {
+    } catch (error) {
       if (error instanceof Error) {
         return rejectWithValue(error.message);
       }
     }
-  }
+  },
 );
 
 export interface UserState {
@@ -39,7 +40,7 @@ export interface UserState {
 const initialState = {
   userList: [],
   fetchUsersLoading: false,
-  removeUserLoading: false
+  removeUserLoading: false,
 } as UserState;
 
 export const userSlice = createSlice({
@@ -64,7 +65,7 @@ export const userSlice = createSlice({
       .addCase(removeUser.fulfilled, (state, { payload }) => {
         state.removeUserLoading = false;
         state.userList = state.userList.filter((user) => user.id !== payload);
-      })
+      });
   },
 });
 
@@ -75,4 +76,5 @@ export default userSlice.reducer;
 
 export const selectUsers = (state: RootState) => state.user.userList;
 export const loadingUsers = (state: RootState) => state.user.fetchUsersLoading;
-export const loadingRemoveUser = (state: RootState) => state.user.removeUserLoading;
+export const loadingRemoveUser = (state: RootState) =>
+  state.user.removeUserLoading;
